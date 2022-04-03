@@ -2,16 +2,9 @@ package com.tonyjev.userservice.application.dto;
 
 import com.tonyjev.userservice.common.util.ModelMapperUtils;
 import com.tonyjev.userservice.domain.User;
-import lombok.Data;
-import lombok.ToString;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.util.ObjectUtils;
+import lombok.Getter;
 
-import java.util.UUID;
-
-@Data
-@ToString
+@Getter
 public class UserDto {
     private String email;
     private String name;
@@ -21,10 +14,14 @@ public class UserDto {
     private String encryptedPassword;
 
     public static UserDto from(User createdUser) {
-        return (UserDto) ModelMapperUtils.mapStrict(createdUser, UserDto.class);
+        return (UserDto) ModelMapperUtils.map(createdUser, UserDto.class);
     }
 
     public User toEntity() {
-        return (User) ModelMapperUtils.mapStrict(this, User.class);
+        return (User) ModelMapperUtils.map(this, User.class);
+    }
+
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
     }
 }

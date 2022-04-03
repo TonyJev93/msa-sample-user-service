@@ -1,12 +1,12 @@
 package com.tonyjev.userservice.domain;
 
-import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Data
+@Getter
 @Table(name = "users")
 public class User {
     @Id

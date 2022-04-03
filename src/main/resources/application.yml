@@ -27,4 +27,4 @@ eureka:
 
 
 greeting:
-  message: Welcome to the Simple E-commerce.
+  message: Welcome to the Simple E-commerce. (User Service)

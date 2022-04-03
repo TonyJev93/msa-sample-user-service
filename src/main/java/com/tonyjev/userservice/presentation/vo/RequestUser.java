@@ -24,7 +24,7 @@ public class RequestUser {
     private String password;
 
     public UserDto toDto(PasswordEncoder passwordEncoder) {
-        UserDto userDto = (UserDto) ModelMapperUtils.mapStrict(this, UserDto.class);
+        UserDto userDto = (UserDto) ModelMapperUtils.map(this, UserDto.class);
         userDto.setEncryptedPassword(passwordEncoder.encode(this.password));
 
         return userDto;
