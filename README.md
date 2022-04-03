@@ -37,6 +37,15 @@ h2
   - instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
     - `${spring.application.instance_id:${random.value}}` = spring.application.instance_id 를 ${random.value} 로 하겠다는 의미.
 
+- h2
+  - version =  1.3.176 이 후 부터 보안 이슈로 DB 자동생성을 막아둠. 1.3.176 사용 권장
+
+```
+접속 : http://{service-url}/h2-console
+
+JDBC URL : jdbc:h2:mem:testdb
+```
+
 # 메이븐 통한 Port 변경 실행 방법
 
 ```bash
