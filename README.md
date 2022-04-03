@@ -1,7 +1,11 @@
 # 의존성
 
-- Spring Cloud Discovery
-    - Eureka Discovery Client
+```
+spring-cloud-starter-netflix-eureka-client
+h2
+```
+
+
 
 # 설정
 
@@ -23,7 +27,7 @@
     
     eureka:
       instance:
-        instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
       client:
         register-with-eureka: true # Eureka 서버에 등록
         fetch-registry: true  # Eureka 서버로부터 인스턴스 정보를 주기적으로 가져올 것인지 설정
