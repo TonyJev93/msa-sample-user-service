@@ -1,8 +1,8 @@
-package com.tonyjev.userservice.service;
+package com.tonyjev.userservice.application;
 
+import com.tonyjev.userservice.application.dto.UserDto;
+import com.tonyjev.userservice.application.infra.UserRepository;
 import com.tonyjev.userservice.domain.User;
-import com.tonyjev.userservice.dto.UserDto;
-import com.tonyjev.userservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,11 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+
     @Override
     public UserDto createUser(UserDto userDto) {
         User user = userDto.toEntity();
+
         user.init();
 
         User createdUser = userRepository.save(user);

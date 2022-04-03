@@ -22,22 +22,17 @@ public class User {
     @Column(nullable = false, length = 50, unique = true)
     private String userId;
 
-    @Column(nullable = false, length = 50, unique = true)
-    private String encryptedPwd;
+    @Column(name = "password", nullable = false, length = 255, unique = true)
+    private String encryptedPassword;
+
 
     public void init() {
         if (id == null) {
             this.generateUserId();
         }
-        
-        this.encryptPwd();
     }
 
     private void generateUserId() {
         this.userId = UUID.randomUUID().toString();
-    }
-
-    private void encryptPwd() {
-        this.encryptedPwd = "Encrypted Password";
     }
 }

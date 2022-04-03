@@ -1,4 +1,4 @@
-package com.tonyjev.userservice.repository;
+package com.tonyjev.userservice.application.infra;
 
 import com.tonyjev.userservice.domain.User;
 import org.springframework.data.repository.CrudRepository;

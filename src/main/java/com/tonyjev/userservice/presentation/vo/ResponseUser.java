@@ -1,7 +1,7 @@
-package com.tonyjev.userservice.vo;
+package com.tonyjev.userservice.presentation.vo;
 
-import com.tonyjev.userservice.common.ModelMapperUtils;
-import com.tonyjev.userservice.dto.UserDto;
+import com.tonyjev.userservice.common.util.ModelMapperUtils;
+import com.tonyjev.userservice.application.dto.UserDto;
 import lombok.Data;
 
 @Data

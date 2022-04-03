@@ -1,8 +1,9 @@
-package com.tonyjev.userservice.vo;
+package com.tonyjev.userservice.presentation.vo;
 
 
-import com.tonyjev.userservice.common.ModelMapperUtils;
-import com.tonyjev.userservice.dto.UserDto;
+import com.tonyjev.userservice.application.dto.UserDto;
+import com.tonyjev.userservice.common.util.ModelMapperUtils;
+import com.tonyjev.userservice.infra.encoder.PasswordEncoder;
 import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
@@ -20,9 +21,12 @@ public class RequestUser {
 
     @NotNull(message = "Password cannot be null")
     @Size(min = 8, message = "Password must be equal or grater than 8 characters")
-    private String pwd;
+    private String password;
 
-    public UserDto toDto() {
-        return (UserDto) ModelMapperUtils.mapStrict(this, UserDto.class);
+    public UserDto toDto(PasswordEncoder passwordEncoder) {
+        UserDto userDto = (UserDto) ModelMapperUtils.mapStrict(this, UserDto.class);
+        userDto.setEncryptedPassword(passwordEncoder.encode(this.password));
+
+        return userDto;
     }
 }

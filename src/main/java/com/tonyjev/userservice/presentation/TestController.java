@@ -1,6 +1,6 @@
-package com.tonyjev.userservice.controller;
+package com.tonyjev.userservice.presentation;
 
-import com.tonyjev.userservice.vo.Greeting;
+import com.tonyjev.userservice.presentation.vo.Greeting;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

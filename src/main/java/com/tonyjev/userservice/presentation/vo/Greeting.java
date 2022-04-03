@@ -1,4 +1,4 @@
-package com.tonyjev.userservice.vo;
+package com.tonyjev.userservice.presentation.vo;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

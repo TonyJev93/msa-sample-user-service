@@ -1,6 +1,6 @@
-package com.tonyjev.userservice.dto;
+package com.tonyjev.userservice.application.dto;
 
-import com.tonyjev.userservice.common.ModelMapperUtils;
+import com.tonyjev.userservice.common.util.ModelMapperUtils;
 import com.tonyjev.userservice.domain.User;
 import lombok.Data;
 import lombok.ToString;
@@ -18,19 +18,10 @@ public class UserDto {
     private String pwd;
     private String userId;
     private String createdAt;
-    private String encryptedPwd;
+    private String encryptedPassword;
 
     public static UserDto from(User createdUser) {
-        ModelMapper mapper = new ModelMapper();
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
-        return mapper.map(createdUser, UserDto.class);
-    }
-
-    public void generateUserId() {
-        if (ObjectUtils.isEmpty(userId)) {
-            this.userId = UUID.randomUUID().toString();
-        }
+        return (UserDto) ModelMapperUtils.mapStrict(createdUser, UserDto.class);
     }
 
     public User toEntity() {

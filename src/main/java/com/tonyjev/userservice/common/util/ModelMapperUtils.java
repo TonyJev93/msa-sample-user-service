@@ -1,4 +1,4 @@
-package com.tonyjev.userservice.common;
+package com.tonyjev.userservice.common.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
